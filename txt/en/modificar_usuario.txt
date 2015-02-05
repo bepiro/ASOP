@@ -1,0 +1,11 @@
+Modify_User
+Choose_an_option
+Accept
+Exit
+1 Modify_password;20
+2 Block_user;21
+3 Unblock_user;22
+4 Change_home_directory;23
+5 Modify_comment;24
+6 Change_shell;25
+0 Return;26

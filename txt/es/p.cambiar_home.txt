@@ -1,0 +1,5 @@
+Cambiar home
+Aceptar
+Salir
+Nombre_de_usuario:;0;n
+Nuevo_home:;0;n

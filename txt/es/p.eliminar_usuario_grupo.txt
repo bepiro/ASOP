@@ -1,0 +1,5 @@
+Eliminar Usuario
+Aceptar
+Salir
+Grupo:
+Nombre_Usuario:;0;n

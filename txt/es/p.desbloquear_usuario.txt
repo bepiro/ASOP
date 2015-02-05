@@ -1,0 +1,4 @@
+Desbloquear usuario
+Aceptar
+Salir
+Nombre_de_usuario:;0;n

@@ -1,0 +1,8 @@
+Modificar_grupo
+Selecciona_una_opcion
+Aceptar
+Salir
+1 Cambiar_nombre;30
+2 Agregar_usuario;31
+3 Quitar_usuario;32
+0 Volver;36

@@ -1,0 +1,10 @@
+Creación de Usuario
+Aceptar
+Salir
+Nombre_de_usuario:;0;n
+Contraseña:;1;n
+Repetir_contraseña:;1;n
+Comentario:;0;n
+Home:;0;1
+Shell:;0;2
+¿Bloquear?_(Y/N);0;3

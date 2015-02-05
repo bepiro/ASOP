@@ -1,0 +1,5 @@
+Cambiar nombre
+Aceptar
+Salir
+Grupo:;0;n
+Nuevo_Nombre:;0;n

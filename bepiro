@@ -1,0 +1,281 @@
+#!/bin/bash
+
+## AUTORES ##
+	#Alejandro Berjaga Murray
+	#Albert Piñero Castell
+	#Carlos Rodríguez Antolín
+
+. funciones
+. funciones_menu
+
+nl=0; #se usará para guardar el numero de parametros introducidos en el menú
+shell=""; #Shell por defecto, cargado de la funcion leer_opciones
+op=0; #La opcion elegida en el menú
+parametros=(); #Array que guarda los parametros introducidos en el menú
+l_usuarios=""; #Guarda la lista de usuarios para mostrarla en un mensaje (PROVISIONAL)
+idioma=""; #Idioma por defecto, cargado de la funcion leer_opciones
+
+leer_opciones #obtiene los datos por defecto de las variables idioma y shell
+
+home="/home/_Username_"
+
+
+#Si no eres root no puedes ejecutar el script
+if [ $USER != "root" ]; then
+	mostrar_mensaje 99
+	clear
+	exit 1
+fi
+
+#Bucle infinito del menu, saldra cuando en el menu principal pulsemos salir.
+while true; do
+mostrar_menu principal.txt
+op=$?; #Guarda el codigo de la ultima orden ejecutada en la variable op.
+
+	case $op in
+		#Salir del programa
+		4)	clear;
+			exit;;
+
+		#Mostrar lista de usuarios e información de cada uno de ellos
+		10)	mostrar_usuarios mostrar_usuario.txt
+			mostrar_lista ${l_usuarios[@]};
+			unset IFS;; #Vuelve a establecer por defecto el valor de la variable IFS
+
+		#Crear usuario
+		11)	menu_parametros p.crear_usuario.txt;
+			if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetión del bucle
+				continue;
+			else #Cuando le damos al boton de aceptar o pulsamos enter entramos 
+				if [ $nl != 7 ]; then
+				#No se han introducido todos los datos
+				mostrar_mensaje 107;
+				else
+					#Todo correcto, procedemos a crear al usuario
+					crear_usuario ${parametros[*]};
+					mostrar_mensaje $?;		
+				fi
+			fi;;
+
+		#Eliminar Usuario
+		12) 	menu_parametros p.eliminar_usuario.txt
+			if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetión del bucle
+				continue;
+			else #Cuando aceptamos entramos
+				if [ $nl == 1 ]; then
+					#Todo correcto,  elimina el usuario.
+					eliminar_usuario ${parametros[*]};
+					mostrar_mensaje $?;
+
+				else
+					#No se han introducido todos los datos
+					mostrar_mensaje 107;
+				fi
+			fi;;
+
+		#Modificar usuario
+		13)	mostrar_menu modificar_usuario.txt;
+			r=$?
+			#Cambiar contraseña
+			if [ $r == 20 ];then 
+				menu_parametros p.cambiar_contrasena.txt
+				if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetión del bucle
+				continue;
+				fi 
+
+				if [ $nl != 3 ]; then
+				#No se han introducido todos los datos
+				mostrar_mensaje 107;
+				else
+					#Todo correcto, procedemos a cambiar contraseña
+					cambiar_contrasena ${parametros[*]};
+					mostrar_mensaje $?;		
+				fi
+
+			#Bloquear usuario
+			elif [ $r == 21 ];then 
+				menu_parametros p.bloquear_usuario.txt
+				if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetión del bucle
+				continue;
+				fi 
+
+				if [ $nl != 1 ]; then
+				#No se han introducido todos los datos
+				mostrar_mensaje 107;
+				else
+					#Todo correcto, procedemos a bloquear
+					bloquear_usuario ${parametros[*]};
+					mostrar_mensaje $?;		
+				fi
+
+			#Desbloquear usuario
+			elif [ $r == 22 ];then 
+				menu_parametros p.desbloquear_usuario.txt
+				if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetión del bucle
+				continue;
+				fi 
+
+				if [ $nl != 1 ]; then
+				#No se han introducido todos los datos
+				mostrar_mensaje 107;
+				else
+					#Todo correcto, procedemos a desbloquear
+					desbloquear_usuario ${parametros[*]};
+					mostrar_mensaje $?;		
+				fi
+
+			#Cambiar home
+			elif [ $r == 23 ];then 
+				menu_parametros p.cambiar_home.txt
+				if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetión del bucle
+				continue;
+				fi 
+
+				if [ $nl != 2 ]; then
+				#No se han introducido todos los datos
+				mostrar_mensaje 107;
+				else
+					#Todo correcto, procedemos a cambiar home
+					modificar_home ${parametros[*]};
+					mostrar_mensaje $?;		
+				fi
+
+			#Cambiar comentario
+			elif [ $r == 24 ];then 
+				menu_parametros p.cambiar_comentario.txt
+				if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetión del bucle
+				continue;
+				fi 
+
+				if [ $nl != 2 ]; then
+				#No se han introducido todos los datos
+				mostrar_mensaje 107;
+				else
+					#Todo correcto, procedemos a cambiar comentario
+					modificar_comentario ${parametros[*]};
+					mostrar_mensaje $?;		
+				fi
+
+			#Cambiar shell
+			elif [ $r == 25 ];then 
+				menu_parametros p.cambiar_shell.txt
+				if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetión del bucle
+				continue;
+				fi 
+
+				if [ $nl != 2 ]; then
+				#No se han introducido todos los datos
+				mostrar_mensaje 107;
+				else
+					#Todo correcto, procedemos a cambiar shell
+					modificar_shell ${parametros[*]};
+					mostrar_mensaje $?;		
+				fi
+			fi;;
+
+		#Mostrar grupo y sus miembros
+		14)	mostrar_grupos mostrar_grupo.txt
+			mostrar_lista ${l_grupos[@]};
+			unset IFS;; #Vuelve a establecer por defecto el valor de la variable IFS
+
+		#Crear grupo
+		15) 	menu_parametros p.crear_grupo.txt
+			if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetión del bucle
+				continue;
+			else
+				if [ $nl == 1 ]; then
+					#Todo correcto, creamos el grupo
+					crear_grupo ${parametros[*]};
+					mostrar_mensaje $?;
+
+				else
+					#No se han introducido todos los datos
+					mostrar_mensaje 107;
+				fi
+			fi;;
+
+		#Eliminar grupo
+		16) 	menu_parametros p.eliminar_grupo.txt
+			if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetión del bucle
+				continue;
+			else
+				if [ $nl == 1 ]; then
+					#Todo correcto, eliminamos el grupo
+					eliminar_grupo ${parametros[*]};
+					mostrar_mensaje $?;
+
+				else
+					#No se han introducido todos los datos
+					mostrar_mensaje 107;
+				fi
+			fi;;
+
+		#Modificar grupo
+		17)	mostrar_menu modificar_grupo.txt;
+			r=$?
+			#Cambiar nombre de grupo
+			if [ $r == 30 ];then
+				menu_parametros p.cambiar_nombre_grupo.txt
+				if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetición del bucle
+				continue;
+				fi
+
+				if [ $nl != 2 ]; then
+				#No se han introducido todos los datos
+				mostrar_mensaje 107;
+				else
+					#Todo correcto, procedemos a cambiar nombre del grupo
+					modificar_nombre_grupo ${parametros[*]};
+					mostrar_mensaje $?;
+				fi
+
+			#Añadir usuario a grupo
+			elif [ $r == 31 ];then
+				menu_parametros p.agregar_usuario.txt
+				if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetición del bucle
+				continue;
+				fi
+
+				if [ $nl != 2 ]; then
+				#No se han introducido todos los datos
+				mostrar_mensaje 107;
+				else
+					#Todo correcto, procedemos a añadir usuario al grupo
+					agregar_usuario_grupo ${parametros[*]};
+					mostrar_mensaje $?; 
+				fi
+
+			#Eliminar usuario de grupo
+			elif [ $r == 32 ];then
+				menu_parametros p.eliminar_usuario_grupo.txt
+				if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetición del bucle
+				continue;
+				fi
+
+				if [ $nl != 2 ]; then
+				#No se han introducido todos los datos
+				mostrar_mensaje 107;
+				else
+					#Todo correcto, procedemos a eliminar usuario del grupo
+					eliminar_usuario_grupo ${parametros[*]};
+					mostrar_mensaje $?; 
+				fi
+					
+			fi;;
+			
+		#Opciones
+		18) 	menu_parametros p.opciones.txt
+			if [ $? == 4 ]; then #si se aprieta el boton de cancelar volvemos al menu principal cancelando esta repetión del bucle
+				continue;
+			else
+				if [ $nl == 2 ]; then
+					#Todo correcto, modificamos las opciones de la aplicación
+					cambiar_opciones ${parametros[*]};
+					leer_opciones #Volvemos a cargar para establecer los cambios
+				else
+					#No se han introducido todos los datos
+					mostrar_mensaje 107;
+				fi
+			fi;;
+	esac
+done

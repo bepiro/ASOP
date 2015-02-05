@@ -1,0 +1,75 @@
+99:No tienes privilegios para ejecutar este programa
+
+##Comprobar contraseña##
+
+100:Las contraseñas no coinciden
+
+##Crear usuario##
+
+101:Nombre de usuario ya en uso
+102:No se ha podido actualizar el archivo de grupos
+103:No se ha podido crear el directorio home
+104:Usuario creado correctamente
+105:Usuario creado, necesita cambio de contraseña
+106:Formato del nombre incorrecto
+107:No se han introducido todos los datos
+
+##Eliminar usuario##
+
+110:No se puede acceder al archivo de usuarios
+111:El usuario no existe
+112:El usuario que intentas borrar está siendo usado en este momento
+113:No se puede acceder al archivo de grupos
+114:El directorio home del usuario no ha sido borrado
+115:Usuario eliminado correctamente
+116:No se ha podido borrar el directorio home
+
+##Crear Grupo##
+
+120:Formato del nombre incorrecto
+121:Ya existe un grupo con este nombre
+122:No se puede acceder a la base de datos de grupos
+123:Grupo creado, cambiar contraseña
+124:Grupo creado correctamente
+
+##Eliminar grupo##
+
+130:El grupo no existe
+131:No se puede eliminar un grupo primario de un usuario
+132:No se puede acceder a la base de datos de grupos
+133:Grupo eliminado correctamente
+
+##Modificar usuario##
+
+ #Operaciones exitosas#
+140:Contraseña modificada correctamente
+141:Cuenta de usuario bloqueada correctamente
+142:Cuenta de usuario desbloqueada correctamente
+143:Home modificado correctamente
+144:Comentario modificado correctamente
+145:Shell modificado correctamente
+
+ #Mensajes de error#
+150:Formato incorrecto de los parametros
+151:El usuario a modificar no existe
+152:El usuario a modificar esta en uso
+153:No se pudo actualizar la base de datos de grupos
+154:Espacio insuficiente para mover el directorio home
+155:No se pudo completar el movimiento del directorio home
+
+##Modificar grupo##
+
+ #Modificar nombre grupo#
+160:Nombre del grupo modificado correctamente
+161:Formato incorrecto de los parametros
+162:El grupo especificado no existe
+163:El nombre de grupo ya está en uso
+164:No se pudo actualizar el archivo group
+
+ #Agregar usuario a grupo#
+170:Usuario agregado al grupo correctamente
+171:El grupo y/o usuario introducido/s no existe
+
+ #Eliminar usuario de grupo#
+180:Usuario eliminado del grupo correctamente
+181:El grupo no existe o el usuario introducido no es miembro del grupo

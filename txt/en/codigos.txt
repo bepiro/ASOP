@@ -1,0 +1,75 @@
+99:You do not have privileges to execute this application
+
+##Comprobar contraseña##
+
+100:The passwords do not match
+
+##Crear usuario##
+
+101:Username already in use
+102:Could not update group file
+103:Could not create the home directory
+104:User created correctly
+105:User created, needs to change password
+106:Incorrect name format
+107:Have not entered all the data
+
+##Eliminar usuario##
+
+110:Could not access the user file
+111:The user does not exist
+112:The user you are trying to delete is being used at this time
+113:Could not access the group file
+114:The user's home directory has not been deleted
+115:User deleted correctly
+116:Could not delete the home directory
+
+##Crear Grupo##
+
+120:Incorrect name format
+121:There is already a group with that name
+122:Can not access the database groups
+123:Group created, change password
+124:Group created correctly
+
+##Eliminar grupo##
+
+130:The group does not exist
+131:Can not delete a primary group of a user
+132:Can not access the database groups
+133:Group deleted correctly
+
+##Modificar usuario##
+
+ #Operaciones exitosas#
+140:Password changed successfully
+141:User account blocked correctly
+142:User account unblocked correctly
+143:Home modified successfully
+144:Comment modified successfully
+145:Shell modified successfully
+
+ #Mensajes de error#
+150:Incorrect format of the parameters
+151:The user to modify does not exist
+152:The user to modify is in use
+153:Could not update the database groups
+154:Not enough space to move the home directory
+155:Failed to complete the movement of the home directory
+
+##Modificar grupo##
+
+ #Modificar nombre grupo#
+160:Group name modified correctly
+161:Incorrect format of the parameters
+162:The specified group does not exist
+163:The group name is already in use
+164:Could not update the group file
+
+ #Agregar usuario a grupo#
+170:User added to group successfully
+171:The group and/or user introduced do not exist
+
+ #Eliminar usuario de grupo#
+180:User deleted from group successfully
+181:The group does not exist or the user entered is not a member of the group

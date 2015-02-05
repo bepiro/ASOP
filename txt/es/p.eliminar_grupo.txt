@@ -1,0 +1,4 @@
+Eliminar grupo
+Aceptar
+Salir
+Nombre_de_grupo:;0;n

@@ -1,0 +1,5 @@
+Cambiar comentario
+Aceptar
+Salir
+Nombre_de_usuario:;0;n
+Nuevo_comentario:;0;n

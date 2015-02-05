@@ -1,0 +1,14 @@
+Menú_principal
+Selecciona_una_opción
+Aceptar
+Salir
+1 Mostrar_Usuarios;10
+2 Crear_Usuario;11
+3 Eliminar_Usuario;12
+4 Modificar_Usuario;13
+5 Mostrar_Grupos;14
+6 Crear_Grupo;15
+7 Eliminar_Grupo;16
+8 Modificar_Grupo;17
+9 Opciones;18
+0 Salir;4

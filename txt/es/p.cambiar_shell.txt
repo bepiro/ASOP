@@ -1,0 +1,5 @@
+Cambiar shell
+Aceptar
+Salir
+Nombre_de_usuario:;0;n
+Nuevo_shell:;0;n

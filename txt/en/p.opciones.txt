@@ -1,0 +1,5 @@
+Options
+Accept
+Exit
+Language(es-en):;0;n
+Shell(bash-sh):;0;n

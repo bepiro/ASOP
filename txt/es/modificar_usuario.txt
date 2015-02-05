@@ -1,0 +1,11 @@
+Modificar_usuario
+Selecciona_una_opcion
+Aceptar
+Salir
+1 Modificar_contraseña;20
+2 Bloquear_cuenta;21
+3 Desbloquear_cuenta;22
+4 Cambiar_carpeta_home;23
+5 Modificar_comentario;24
+6 Cambiar_shell;25
+0 Volver;26

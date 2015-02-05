@@ -1,0 +1,6 @@
+Cambiar contraseña
+Aceptar
+Salir
+Usuario:;0;n
+Contraseña:;1;n
+Repetir_contraseña:;1;n
